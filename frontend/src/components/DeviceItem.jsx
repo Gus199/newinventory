@@ -8,7 +8,7 @@ function deviceItem({ device }) {
       <div>{device.model}</div>
       <div>{device.condition}</div>
       <div>{device.batteryCycle}</div>
-      <div>{device.description}</div>
+      <div>{device.description.substring(0, 10)}...</div>
       <div className={`status status-${device.status}`}>{device.status}</div>
      
      

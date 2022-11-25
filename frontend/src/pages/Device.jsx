@@ -52,7 +52,7 @@ function Device() {
     dispatch(inProgressTask(deviceId))
       .unwrap()
       .then(() => {
-        toast.success('device Closed')
+        toast.success('device in Progress')
         navigate('/devices')
       })
       .catch(toast.error)
@@ -64,7 +64,7 @@ function Device() {
     dispatch(closeDevice(deviceId))
       .unwrap()
       .then(() => {
-        toast.success('device Closed')
+        toast.success('device Paid')
         navigate('/devices')
       })
       .catch(toast.error)

@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/devices', require('./routes/deviceRoutes'))
 
+
 // Serve Frontend
 if (process.env.NODE_ENV === 'production') {
   // Set build folder as static
