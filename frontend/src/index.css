@@ -10,7 +10,13 @@ body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
 }
-
+.logo span{
+  font-weight: bolder;
+  font-size: xlarge;
+  transform: rotate(45deg);
+  color:hsl(184, 77%, 34%);
+ 
+}
 a {
   text-decoration: none;
   color: #000;

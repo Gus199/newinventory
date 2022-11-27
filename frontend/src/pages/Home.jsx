@@ -6,9 +6,9 @@ function Home() {
   return (
     <>
 
-      <section className='heading'>
+      {/* <section className='heading'>
      
-      </section>
+      </section> */}
 <Head />
    
     </>
