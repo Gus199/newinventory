@@ -1,16 +1,19 @@
 
-import Head from '../components/Head'
+// import Head from '../components/Head'
+// import Footer from '../components/Layout/Footer'
+import HomePage from '../components/Layout/HomePage'
+import TestPage from './TestPage'
+
 
 
 function Home() {
   return (
     <>
 
-      {/* <section className='heading'>
-     
-      </section> */}
-<Head />
-   
+{/* <NavBar /> */}
+{/* <HomePage /> */}
+<TestPage />
+
     </>
   )
 }
