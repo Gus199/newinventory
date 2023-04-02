@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 
-mongoose.set("strictQuery", false);// added this line for deployment
+// mongoose.set("strictQuery", false);// added this line for deployment
 
 const connectDB = async () => {
   try {
-    mongoose.set('strictQuery', false);// added this line for deployment
+    // mongoose.set('strictQuery', false);// added this line for deployment
     const conn = await mongoose.connect(process.env.MONGO_URL)
     console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)
   } catch (error) {
