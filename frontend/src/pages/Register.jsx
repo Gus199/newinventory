@@ -5,6 +5,7 @@ import { FaUser } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { register } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -28,11 +29,17 @@ function Register() {
     }))
   }
 
-  // NOTE: no need for useEffect here as we can catch the
-  // AsyncThunkAction rejection in our onSubmit or redirect them on the
-  // resolution
-  // Side effects shoulld go in event handlers where possible
-  // source: - https://beta.reactjs.org/learn/keeping-components-pure#where-you-can-cause-side-effects
+
+     // handle password Eye
+     const [passwordEye, setPasswordEye] = useState(false);
+     const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
+   
+     const handelePasswordClick = () => {
+       setPasswordEye(!passwordEye);
+     };
+     const handeleConfirmPasswordClick = () => {
+       setConfirmPasswordEye(!confirmPasswordEye);
+     };
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -49,9 +56,7 @@ function Register() {
       dispatch(register(userData))
         .unwrap()
         .then((user) => {
-          // NOTE: by unwrapping the AsyncThunkAction we can navigate the user after
-          // getting a good response from our API or catch the AsyncThunkAction
-          // rejection to show an error message
+     
           toast.success(`Registered new user - ${user.name}`)
           navigate('/')
         })
@@ -84,7 +89,9 @@ function Register() {
               onChange={onChange}
               placeholder='Enter your name'
               required
+              
             />
+            
           </div>
           <div className='form-group'>
             <input
@@ -97,10 +104,11 @@ function Register() {
               placeholder='Enter your email'
               required
             />
+            
           </div>
           <div className='form-group'>
             <input
-              type='password'
+              type={passwordEye === false ? "password" : "text"}
               className='form-control'
               id='password'
               name='password'
@@ -109,10 +117,18 @@ function Register() {
               placeholder='Enter password'
               required
             />
+             {/* eye section */}
+             <div className="aif">
+              {passwordEye === false ? (
+                <AiFillEyeInvisible onClick={handelePasswordClick}  style={{color:'#0072b1'}}/>
+              ) : (
+                <AiFillEye onClick={handelePasswordClick}  style={{color:'#0072b1'}}/>
+              )}
+            </div>
           </div>
           <div className='form-group'>
             <input
-              type='password'
+             type={confirmPasswordEye === false ? "password" : "text"}
               className='form-control'
               id='password2'
               name='password2'
@@ -121,6 +137,14 @@ function Register() {
               placeholder='Confirm password'
               required
             />
+            {/* eye section */}
+            <div className="aif">
+              {confirmPasswordEye === false ? (
+                <AiFillEyeInvisible onClick={handeleConfirmPasswordClick} style={{color:'#0072b1'}} />
+              ) : (
+                <AiFillEye onClick={handeleConfirmPasswordClick}   style={{color:'#0072b1'}}/>
+              )}
+            </div>
           </div>
           <div className='form-group'>
             <button className='btn btn-block'>Submit</button>

@@ -117,11 +117,13 @@ h3 {
 
 .form-group {
   margin-bottom: 10px;
+  
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
+  position: relative;
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6;
@@ -375,6 +377,12 @@ footer {
   border-color: #000 transparent #555 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
+}
+
+.aif {
+  position:absolute;
+  margin: -45px 600px ;
+  font-size:x-large;
 }
 
 @keyframes spin {
